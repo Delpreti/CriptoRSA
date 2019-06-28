@@ -2,8 +2,19 @@
 #include <string.h>
 #include <math.h>
 
-long N = 297*349;
-int Dkey = 29431;
+int N = 37*71;
+int Dkey = 2291;
+
+// Funcao para calcular potencias modulo n
+int potm(int x, int exp, int n) {
+	int r = 1;
+	while (exp > 0){
+		r *= x;
+		r = r%n;
+		exp--;
+	}
+	return r;
+}
 
 int main(void) {
 	// Abre o arquivo com a mensagem
@@ -14,11 +25,11 @@ int main(void) {
     }
 
     // Realiza a leitura da mensagem, descriptografa, e exibe na tela
-    long Cread;
+    int Cread;
     while(feof(f) == 0) {
     	fread(&Cread, sizeof(Cread), 1, f);
-    	long Decript = (lround(pow(Cread, Dkey)) % N) - 101;
-    	printf("%c", (int) Decript);
+    	int Decript = potm(Cread, Dkey, N) - 101;
+    	printf("%c", Decript);
     }
     printf("\n");
 

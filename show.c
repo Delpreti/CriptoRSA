@@ -11,10 +11,10 @@ int main(void) {
     }
 
     // Realiza a leitura da mensagem sem descriptografar e exibe na tela
-    long Cread;
+    int Cread;
     while(feof(f) == 0) {
     	fread(&Cread, sizeof(Cread), 1, f);
-    	printf("%c", (int) Cread - 101);
+    	printf("%c", Cread - 101);
     }
     printf("\n");
 

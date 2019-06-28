@@ -2,9 +2,20 @@
 #include <string.h>
 #include <math.h>
 
-long N = 297*349;
-int Ekey = 7;
-int phi = 103008;
+int N = 37*71; // phi = 2520 = 2*2*2*3*3*5*7
+int Ekey = 11;
+
+// Funcao para calcular potencias modulo n
+int potm(int x, int exp, int n) {
+	int r = 1;
+	while (exp > 0){
+		r *= x;
+		r = r%n;
+		exp--;
+	}
+	return r;
+}
+
 
 int main(int argc, char *argv[]) {
 	// Verifica se o usuario inseriu alguma mensagem
@@ -23,11 +34,11 @@ int main(int argc, char *argv[]) {
     // Converte os caracteres para (ASCII + 101), encripta modulo N e escreve no arquivo
     for (int i = 1; argv[i] != 0; i++) {
 		for (int j = 0; argv[i][j] != '\0'; j++) {
-			long Cript = lround(pow(argv[i][j] + 101, Ekey)) % N;
+			int Cript = potm(argv[i][j] + 101, Ekey, N);
 			fwrite(&Cript, sizeof(Cript), 1, f);
 		}
 		// Refaz o espaco no final de cada palavra
-		long Cspace = lround(pow(' ' + 101, Ekey)) % N;
+		int Cspace = potm(' ' + 101, Ekey, N);
 		fwrite(&Cspace, sizeof(Cspace), 1, f);
 	}
 
