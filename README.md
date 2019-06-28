@@ -1,5 +1,5 @@
 # Criptografia RSA
-Conjunto de programas escritos em linguagem C para enviar e receber mensagens criptografadas de texto ASCII
+Conjunto de programas escritos em linguagem C para enviar e receber mensagens criptografadas de texto ASCII. Feito para fins educacionais, não utilize em um sistema sério de criptografia.
 
 ## How to compile:
 * Clone the repository with `git clone https://github.com/Delpreti/CriptoRSA`
