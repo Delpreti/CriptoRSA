@@ -1,17 +1,14 @@
 #include <stdio.h>
 #include <string.h>
-#include <math.h>
 
-int N = 37*71; // phi = 2520 = 2*2*2*3*3*5*7
+int N = 37*71;
 int Ekey = 11;
 
 // Funcao para calcular potencias modulo n
 int potm(int x, int exp, int n) {
 	int r = 1;
-	while (exp > 0){
-		r *= x;
-		r = r%n;
-		exp--;
+	for (; exp > 0; exp--) {
+		r = (r*x)%n;
 	}
 	return r;
 }

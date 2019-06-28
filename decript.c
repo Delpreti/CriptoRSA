@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include <math.h>
 
 int N = 37*71;
 int Dkey = 2291;
@@ -8,10 +7,8 @@ int Dkey = 2291;
 // Funcao para calcular potencias modulo n
 int potm(int x, int exp, int n) {
 	int r = 1;
-	while (exp > 0){
-		r *= x;
-		r = r%n;
-		exp--;
+	for (; exp > 0; exp--) {
+		r = (r*x)%n;
 	}
 	return r;
 }

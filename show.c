@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include <math.h>
 
 int main(void) {
 	// Abre o arquivo com a mensagem
@@ -14,7 +13,7 @@ int main(void) {
     int Cread;
     while(feof(f) == 0) {
     	fread(&Cread, sizeof(Cread), 1, f);
-    	printf("%c", Cread - 101);
+    	printf("%c", Cread);
     }
     printf("\n");
 
