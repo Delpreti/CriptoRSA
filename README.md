@@ -1,5 +1,5 @@
 # Criptografia RSA
-Conjunto de programas para enviar e receber mensagens de texto ASCII
+Conjunto de programas para enviar e receber mensagens criptografadas de texto ASCII
 
 ## How to compile:
 * Clone the repository with `git clone https://github.com/Delpreti/CriptoRSA`
