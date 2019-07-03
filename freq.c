@@ -1,33 +1,27 @@
 #include <stdio.h>
 #include <string.h>
 
+#define SP 256
+
 int main(int argc, char *argv[]) {
 	// Verifica se o usuario inseriu alguma mensagem
 	if (argc < 2) {
-		fprintf(stderr, "Voce deve escrever a mensagem a ser criptografada junto com a chamada da funcao\n");
+		fprintf(stderr, "Voce deve escrever a mensagem junto com a chamada da funcao\n");
 		return -1;
 	}
 
-	// Cria um vetor apenas com os caracteres validos e um vetor com as frequencias
-	const int SP = 280;
-	char asc[SP];
-	int freq[SP];
-	for (int w = 0; w < SP; w++) {
-		asc[w] = w;
-		freq[w] = 0;
-	}
-
-    // Guarda no vetor a frequencia dos caracteres
+	// Cria um vetor nulo e guarda as frequencias nele
+	int quant[SP] = {0};
     for (int i = 1; argv[i] != 0; i++) {
 		for (int j = 0; argv[i][j] != '\0'; j++) {
-			freq[(int)argv[i][j]] += 1;
+			quant[(int)argv[i][j]] += 1;
 		}
 	}
 
 	// Imprime na tela os caracteres usados e sua frequencia
 	for (int i = 0; i < SP; i++) {
-		if (freq[i] > 0) {
-			printf("%c - %d\n", asc[i], freq[i]);
+		if (quant[i] > 0) {
+			printf("%c - %d\n", i, quant[i]);
 		}
 	}
 
