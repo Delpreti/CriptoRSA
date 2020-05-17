@@ -13,7 +13,6 @@ int potm(int x, int exp, int n) {
 	return r;
 }
 
-
 int main(int argc, char *argv[]) {
 	// Verifica se o usuario inseriu alguma mensagem
 	if(argc < 2){
